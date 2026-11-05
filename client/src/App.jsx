@@ -1,6 +1,6 @@
-import {Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import Login from './pages/Login'
+import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ProtectedLayout from "./components/ProtectedLayout";
 import Dashboard from "./pages/Dashboard";
@@ -11,7 +11,28 @@ import MeetingRoom from "./pages/MeetingRoom";
 const App = () => {
   return (
     <>
-      <Toaster />
+      <Toaster
+        position="bottom-right"
+        gutter={12}
+        containerStyle={{ bottom: 24, right: 24 }}
+        toastOptions={{
+          duration: 3500,
+          className: "!text-base !rounded-xl !shadow-xl",
+          style: {
+            background: "#004CFF",
+            color: "#fff",
+            padding: "12px 16px",
+          },
+          success: {
+            duration: 3000,
+            iconTheme: { primary: "#34d399", secondary: "#0f172a" },
+          },
+          error: {
+            duration: 5000,
+            iconTheme: { primary: "#f87171", secondary: "#0f172a" },
+          },
+        }}
+      />
       <Routes>
         <Route path="/login" element={<Login mode="login" />} />
         <Route path="/register" element={<Login mode="register" />} />
